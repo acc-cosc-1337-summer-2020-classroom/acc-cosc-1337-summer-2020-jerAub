@@ -6,7 +6,19 @@ Calculate GC content:
 Iterate string count Gs and Cs, divide count by string length.
 Return quotient.
 */
-
+double get_gc_content(const std::string& str)
+{
+    double count = 0;
+    double len = str.length();
+    for(int i = 0; i < str.length(); i++)
+        {
+            if(str[i] == 'G' || str[i] == 'C')
+            {
+                count += 1;
+            }
+        }
+    return count/len;
+}
 
 
 
@@ -14,7 +26,15 @@ Return quotient.
 Write code for function get_reverse_string that
 accepts a string parameter and returns a string reversed.
 */
-
+std::string get_reverse_string(std::string str)
+{
+    std::string reverse = "";
+    for(int i = 1; i <= str.length(); i++)
+    {
+        reverse.push_back(str[str.length() - i]);
+    }
+    return reverse;
+}
 
 
 /*
@@ -27,4 +47,27 @@ b. iterate local string variable and
 c. return string
 
 */
-
+std::string get_dna_complement(std::string dna) 
+{
+    std::string reverse_dna = get_reverse_string(dna);
+    for(int i = 0; i < reverse_dna.length(); i++)
+    {
+        if(reverse_dna[i] == 'A')
+        {
+            reverse_dna[i] = 'T';
+        }
+        else if(reverse_dna[i] == 'T')
+        {
+            reverse_dna[i] = 'A';
+        }
+        else if(reverse_dna[i] == 'C')
+        {
+            reverse_dna[i] = 'G';
+        }
+        else if(reverse_dna[i] == 'G')
+        {
+            reverse_dna[i] = 'C';
+        }
+    }
+    return reverse_dna;
+}
