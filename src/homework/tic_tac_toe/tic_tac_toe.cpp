@@ -48,6 +48,7 @@ bool TicTacToe::check_row_win()
         return true;
     }
 
+    return false;
 }
 
 //COLUMN WINNER
@@ -68,6 +69,8 @@ bool TicTacToe::check_column_win()
     {
         return true;
     }
+
+    return false;
 }
 
 //DIAGONAL WINNER 
@@ -84,6 +87,7 @@ bool TicTacToe::check_diagonal_win()
         return true;
     }
 
+    return false;
 }
 
 //MARK BOARD
